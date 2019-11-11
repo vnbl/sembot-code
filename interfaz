@@ -1,84 +1,176 @@
-Imports System.ComponentModel Imports System.Threading Public Class Form1 
-Private readComThread As Thread Private terminateThread As Boolean Private COM_NuevaCadenaLeida As Boolean = False Private COM_CadenaLeida As String = "" Private bandera As String = "" Private vel As String = "" Private b1 As String = "" 
+Imports System.ComponentModel 
+
+Imports System.Threading Public 
+
+Class Form1 
+
+Private readComThread As Thread Private 
+terminateThread As Boolean Private 
+COM_NuevaCadenaLeida As Boolean = False Private 
+COM_CadenaLeida As String = "" Private bandera As 
+String = "" Private vel As String = "" Private b1 As String = "" 
+
 Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load 
 'Dim velocidad As String = "64" 'MsgBox(Chr(CInt(velocidad))) 'End 
+
 Try SerialPort1.BaudRate = 9600 
 SerialPort1.PortName = "COM4" SerialPort1.Close() SerialPort1.Open() Timer1.Enabled = True 
+
 Catch ex As Exception 
 MsgBox(ex.ToString) End Try terminateThread = False readComThread = New Thread(AddressOf ProcessCOM) readComThread.Start() End Sub 
+
 Private Sub Form1_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing 
+
 Dim result As DialogResult result = MessageBox.Show("Está seguro de que desea Salir?", "Confirme", MessageBoxButtons.YesNo, MessageBoxIcon.Question) 
+
 If result = Windows.Forms.DialogResult.No Then 
-e.Cancel = True Else SerialPort1.Close() 
-terminateThread = True End If End Sub 
+
+e.Cancel = True Else 
+SerialPort1.Close() 
+
+terminateThread = True End If End 
+
+Sub 
 Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick 
-Timer1.Enabled = False Static c As Integer = 1 Static f As Boolean = False If Not f Then 
+
+Timer1.Enabled = False Static 
+c As Integer = 1 Static f As 
+Boolean = False If Not f Then 
+
 If c = 1 Then 
-SerialPort1.Write("h") f = True ElseIf c = 2 Then 
-SerialPort1.Write("i") f = True End If End If 
-If COM_NuevaCadenaLeida Then 
-COM_NuevaCadenaLeida = False f = False If c = 1 Then 
-tbEncoder.Text = COM_CadenaLeida c = 2 ElseIf c = 2 Then 
-TbMag.Text = COM_CadenaLeida c = 1 End If End If Timer1.Enabled = True End Sub 
+SerialPort1.Write("h") f = 
+True ElseIf c = 2 Then 
+SerialPort1.Write("i") f = 
+True End If End If 
+If COM_NuevaCadenaLeida Then
+COM_NuevaCadenaLeida = False f = 
+False If c = 1 Then 
+
+tbEncoder.Text = COM_CadenaLeida c = 2 
+ElseIf c = 2 Then 
+
+TbMag.Text = COM_CadenaLeida c = 1 End 
+If End If Timer1.Enabled = True End Sub 
+
 Private Sub ProcessCOM() 
+
 While (Not terminateThread) 
 If SerialPort1.IsOpen Then 
+
 Try COM_CadenaLeida = SerialPort1.ReadLine() 
-COM_NuevaCadenaLeida = True Catch ex As Exception 
-'MsgBox(ex.ToString) End Try End If End While End Sub 
-Private Sub BtnParar_Click(sender As Object, e As EventArgs) Handles BtnParar.Click 
+
+COM_NuevaCadenaLeida = True Catch ex As 
+Exception 
+'MsgBox(ex.ToString) End Try End If 
+End While End Sub 
+Private Sub BtnParar_Click(sender As Object, e As EventArgs) Handles 
+BtnParar.Click 
 Try bandera = "j" 
-SerialPort1.Write(bandera) Catch ex As Exception 
-MessageBox.Show("No se pudo escribir el flag necesario.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error) 
-End Try End Sub 
-Private Sub BtnEncender_Click(sender As Object, e As EventArgs) Handles BtnEncender.Click 
+
+SerialPort1.Write(bandera) Catch ex 
+As Exception 
+MessageBox.Show("No se pudo escribir el flag necesario.", "Error!", 
+MessageBoxButtons.OK, MessageBoxIcon.Error) 
+End Try End 
+Sub 
+Private Sub BtnEncender_Click(sender As Object, e As EventArgs) Handles 
+BtnEncender.Click 
 Try bandera = "a" 
-SerialPort1.Write(bandera) Catch ex As Exception 
-MessageBox.Show("No se pudo escribir el flag necesario.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error) 
-End Try End Sub 
-Private Sub BtnAdelante_Click(sender As Object, e As EventArgs) Handles BtnAdelante.Click 
+
+SerialPort1.Write(bandera) Catch ex 
+As Exception 
+MessageBox.Show("No se pudo escribir el flag necesario.", "Error!", 
+MessageBoxButtons.OK, MessageBoxIcon.Error) 
+
+End Try End 
+Sub 
+Private Sub BtnAdelante_Click(sender As Object, e As EventArgs) Handles 
+BtnAdelante.Click 
 Try bandera = "b" 
-SerialPort1.Write(bandera) Catch ex As Exception 
-MessageBox.Show("No se pudo escribir el flag necesario.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error) 
-End Try End Sub 
-Private Sub BtnIzquierda_Click(sender As Object, e As EventArgs) Handles BtnIzquierda.Click 
+
+SerialPort1.Write(bandera) Catch ex 
+As Exception 
+MessageBox.Show("No se pudo escribir el flag necesario.", "Error!", 
+MessageBoxButtons.OK, MessageBoxIcon.Error) 
+
+End Try End 
+Sub 
+Private Sub BtnIzquierda_Click(sender As Object, e As EventArgs) Handles
+ BtnIzquierda.Click 
 Try bandera = "c" 
-SerialPort1.Write(bandera) Catch ex As Exception 
-MessageBox.Show("No se pudo escribir el flag necesario.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error) 
-End Try End Sub 
+
+SerialPort1.Write(bandera) Catch ex 
+As Exception 
+MessageBox.Show("No se pudo escribir el flag necesario.", "Error!", 
+MessageBoxButtons.OK, MessageBoxIcon.Error) 
+
+End Try 
+End Sub 
+
 Private Sub BtnAtras_Click(sender As Object, e As EventArgs) Handles BtnAtras.Click 
+
 Try bandera = "d" 
+
 SerialPort1.Write(bandera) 
+
 Catch ex As Exception 
-MessageBox.Show("No se pudo escribir el flag necesario.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error) 
-End Try End Sub 
-Private Sub BtnDerecha_Click(sender As Object, e As EventArgs) Handles BtnDerecha.Click 
+
+MessageBox.Show("No se pudo escribir el flag necesario.", "Error!", 
+MessageBoxButtons.OK, MessageBoxIcon.Error) 
+
+End Try End 
+Sub 
+Private Sub BtnDerecha_Click(sender As Object, e As EventArgs) Handles 
+BtnDerecha.Click 
+
 Try bandera = "e" 
-SerialPort1.Write(bandera) Catch ex As Exception 
-MessageBox.Show("No se pudo escribir el flag necesario.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error) 
-End Try End Sub 
-Private Sub BtnAuto_Click(sender As Object, e As EventArgs) Handles BtnAuto.Click 
+
+SerialPort1.Write(bandera) Catch ex 
+As Exception 
+MessageBox.Show("No se pudo escribir el flag necesario.", "Error!", 
+MessageBoxButtons.OK, MessageBoxIcon.Error) 
+End Try End 
+Sub 
+Private Sub BtnAuto_Click(sender As Object, e As EventArgs) Handles 
+BtnAuto.Click 
 Try bandera = "f" 
-SerialPort1.Write(bandera) Catch ex As Exception 
+SerialPort1.Write(bandera) Catch ex 
+As Exception 
+
+
 MessageBox.Show("No se pudo escribir el flag necesario.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error) 
+
 End Try End Sub 
+
 Private Sub BtnManual_Click(sender As Object, e As EventArgs) Handles BtnManual.Click 
 Try bandera = "g" 
-SerialPort1.Write(bandera) Catch ex As Exception 
-MessageBox.Show("No se pudo escribir el flag necesario.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error) 
+SerialPort1.Write(bandera) Catch ex 
+As Exception 
+MessageBox.Show("No se pudo escribir el flag necesario.", "Error!",
+ MessageBoxButtons.OK, MessageBoxIcon.Error) 
+
 End Try End Sub 
+
 Private Sub BtnSalir_Click(sender As Object, e As EventArgs) Handles BtnSalir.Click 
+
 Timer1.Enabled = False SerialPort1.Close() terminateThread = True MsgBox("Se ha cerrado el Puerto Serial, reinicie el programa si desea continuar", MsgBoxStyle.Information, "Atención!") 
+
 End Sub 
 Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick 
 Timer2.Enabled = False 
+
 Static flag As Boolean = False 
+
 If Not flag Then 
+
 Timer1.Enabled = False SerialPort1.Write("v") Timer2.Enabled = True Else SerialPort1.Write(Chr(CInt(vel))) 
+
 Timer1.Enabled = True End If 
 flag = Not flag 
 End Sub 
+
 Private Sub TrVelocidad_MouseUp(sender As Object, e As MouseEventArgs) Handles TrVelocidad.MouseUp 
+
 If Timer2.Enabled = False Then 
 Timer2.Enabled = True vel = TrVelocidad.Value End If End Sub 
 End Class 
