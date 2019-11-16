@@ -1,0 +1,11 @@
+C:\Users\flore\Desktop\isa backup\Isaura Flores\Ing. Mecatronica\9no Semestre\P4\Interfaz\SemBot\SemBot\bin\Debug\SemBot.exe
+C:\Users\flore\Desktop\isa backup\Isaura Flores\Ing. Mecatronica\9no Semestre\P4\Interfaz\SemBot\SemBot\bin\Debug\SemBot.pdb
+C:\Users\flore\Desktop\isa backup\Isaura Flores\Ing. Mecatronica\9no Semestre\P4\Interfaz\SemBot\SemBot\bin\Debug\SemBot.xml
+C:\Users\flore\Desktop\isa backup\Isaura Flores\Ing. Mecatronica\9no Semestre\P4\Interfaz\SemBot\SemBot\obj\Debug\SemBot.vbprojResolveAssemblyReference.cache
+C:\Users\flore\Desktop\isa backup\Isaura Flores\Ing. Mecatronica\9no Semestre\P4\Interfaz\SemBot\SemBot\obj\Debug\WindowsApplication1.Form1.resources
+C:\Users\flore\Desktop\isa backup\Isaura Flores\Ing. Mecatronica\9no Semestre\P4\Interfaz\SemBot\SemBot\obj\Debug\WindowsApplication1.Resources.resources
+C:\Users\flore\Desktop\isa backup\Isaura Flores\Ing. Mecatronica\9no Semestre\P4\Interfaz\SemBot\SemBot\obj\Debug\SemBot.vbproj.GenerateResource.Cache
+C:\Users\flore\Desktop\isa backup\Isaura Flores\Ing. Mecatronica\9no Semestre\P4\Interfaz\SemBot\SemBot\obj\Debug\SemBot.vbproj.CoreCompileInputs.cache
+C:\Users\flore\Desktop\isa backup\Isaura Flores\Ing. Mecatronica\9no Semestre\P4\Interfaz\SemBot\SemBot\obj\Debug\SemBot.exe
+C:\Users\flore\Desktop\isa backup\Isaura Flores\Ing. Mecatronica\9no Semestre\P4\Interfaz\SemBot\SemBot\obj\Debug\SemBot.xml
+C:\Users\flore\Desktop\isa backup\Isaura Flores\Ing. Mecatronica\9no Semestre\P4\Interfaz\SemBot\SemBot\obj\Debug\SemBot.pdb
